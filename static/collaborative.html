@@ -125,7 +125,13 @@
     <script src="/static/collaborative.js"></script>
     <script>
         // Initialize the app with room ID
-        window.ROOM_ID = 'loading...';
+        // Set room ID dynamically from URL
+        const pathParts = window.location.pathname.split('/');
+        const roomId = pathParts[pathParts.length - 1];
+        window.ROOM_ID = roomId;
+        
+        // Update the room display
+        document.getElementById('room-display').textContent = roomId;
     </script>
 </body>
 </html>
