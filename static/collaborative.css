@@ -209,6 +209,23 @@ html, body {
     gap: 8px;
     font-size: 12px;
     color: var(--sub);
+    transition: all 0.2s;
+}
+
+.room-id:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.15);
+}
+
+@media (max-width: 768px) {
+    .room-id {
+        cursor: pointer;
+    }
+    
+    .room-id:active {
+        background: rgba(255,255,255,.1);
+        transform: scale(0.98);
+    }
 }
 
 .room-id code {

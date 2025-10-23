@@ -34,7 +34,7 @@
                     </div>
                     <div class="header-right">
                         <div class="room-info">
-                            <div class="room-id">
+                            <div class="room-id" id="room-pill" title="Tap to copy room URL">
                                 <span>Room: </span>
                                 <code id="room-display">loading...</code>
                                 <button id="copy-room" class="copy-btn" title="Copy room URL">📋 Copy</button>
@@ -132,6 +132,21 @@
         
         // Update the room display
         document.getElementById('room-display').textContent = roomId;
+        
+        // Make entire room pill clickable for mobile
+        const roomPill = document.getElementById('room-pill');
+        roomPill.addEventListener('click', function(e) {
+            // Don't trigger if clicking the copy button directly
+            if (e.target.id === 'copy-room') return;
+            
+            copyRoomUrl();
+        });
+        
+        // Add mobile-specific styling hint
+        if (window.innerWidth <= 768) {
+            roomPill.style.cursor = 'pointer';
+            roomPill.title = 'Tap to copy room URL';
+        }
     </script>
 </body>
 </html>

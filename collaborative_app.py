@@ -491,7 +491,7 @@ async def room_page(room_id: str):
                             </div>
                             <div class="header-right">
                                 <div class="room-info">
-                                    <div class="room-id">
+                                    <div class="room-id" id="room-pill" title="Tap to copy room URL">
                                         <span>Room: </span>
                                         <code id="room-display">""" + room_id + """</code>
                                         <button id="copy-room" class="copy-btn" title="Copy room URL">📋 Copy</button>
