@@ -384,7 +384,9 @@ async def landing_page():
     </head>
     <body>
         <div class="container">
-            <div class="logo">Gummy</div>
+            <div class="logo">
+                <img src="/static/gummy-logo.svg" alt="Gummy" style="height: 60px; width: auto;" />
+            </div>
             <div class="subtitle">Collaborative AI Chat Platform</div>
             
             <button class="button" onclick="createRoom()">Create Room</button>
@@ -486,7 +488,6 @@ async def room_page(room_id: str):
                         <div class="header-content">
                             <div class="logo">
                                 <img src="/static/gummy-logo.svg" alt="Gummy" class="logo-img" />
-                                <span>Gummy</span>
                             </div>
                             <div class="header-right">
                                 <div class="room-info">
