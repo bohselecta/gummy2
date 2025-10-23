@@ -494,7 +494,7 @@ async def room_page(room_id: str):
                                     <div class="room-id">
                                         <span>Room: </span>
                                         <code id="room-display">""" + room_id + """</code>
-                                        <button id="copy-room" class="copy-btn" title="Copy room URL">📋</button>
+                                        <button id="copy-room" class="copy-btn" title="Copy room URL">📋 Copy</button>
                                     </div>
                                     <div class="user-count">
                                         <span id="user-count">👥 1 user</span>
