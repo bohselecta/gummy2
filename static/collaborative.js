@@ -1,4 +1,4 @@
-// CUIDADO Collaborative - WebSocket Client Logic
+// Gummy Collaborative - WebSocket Client Logic
 // Handles multi-user chat with real-time streaming and queue management
 
 class CollaborativeApp {

@@ -1,8 +1,8 @@
-# CUIDADO
+# Gummy 🍬
 
-> *"Cuidado Llamas!!"* 🦙
+> *"Gummy Bears!"* 🐻
 
-A premium AI chat interface with custom llama branding. Built with Flask and Ollama, featuring elegant design, seamless local/remote access, and **collaborative multi-user rooms**.
+A premium AI chat interface with custom gummy branding. Built with Flask and Ollama, featuring elegant design, seamless local/remote access, and **collaborative multi-user rooms**.
 
 ## Quick Start
 

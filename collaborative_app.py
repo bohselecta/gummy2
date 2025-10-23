@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CUIDADO Collaborative - Multi-User AI Chat Platform
+Gummy Collaborative - Multi-User AI Chat Platform
 FastAPI WebSocket server with fair job queuing and live streaming mirrors
 """
 
@@ -145,7 +145,7 @@ class RoomState:
 rooms: Dict[str, RoomState] = {}
 
 # FastAPI app
-app = FastAPI(title="CUIDADO Collaborative", version="1.0.0")
+app = FastAPI(title="Gummy Collaborative", version="1.0.0")
 
 def generate_room_id() -> str:
     """Generate a friendly room ID"""
@@ -320,7 +320,7 @@ async def landing_page():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CUIDADO Collaborative</title>
+        <title>Gummy Collaborative</title>
         <style>
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -384,7 +384,7 @@ async def landing_page():
     </head>
     <body>
         <div class="container">
-            <div class="logo">CUIDADO</div>
+            <div class="logo">Gummy</div>
             <div class="subtitle">Collaborative AI Chat Platform</div>
             
             <button class="button" onclick="createRoom()">Create Room</button>
@@ -458,7 +458,7 @@ async def room_page(room_id: str):
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>CUIDADO Room</title>
+            <title>Gummy Room</title>
             <link rel="stylesheet" href="/static/collaborative.css">
         </head>
         <body>
@@ -485,8 +485,8 @@ async def room_page(room_id: str):
                     <div class="header">
                         <div class="header-content">
                             <div class="logo">
-                                <img src="/static/cuidado-logo.svg" alt="CUIDADO" class="logo-img" />
-                                <span>CUIDADO</span>
+                                <img src="/static/gummy-logo.svg" alt="Gummy" class="logo-img" />
+                                <span>Gummy</span>
                             </div>
                             <div class="header-right">
                                 <div class="room-info">
@@ -756,7 +756,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("CUIDADO Collaborative - Multi-User AI Chat Platform")
+    print("Gummy Collaborative - Multi-User AI Chat Platform")
     print("=" * 60)
     
     local_ip = get_local_ip()
