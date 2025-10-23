@@ -869,14 +869,15 @@ html, body {
     }
     
     .others-threads {
-        width: 100%;
+        width: 280px;
         position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        height: -webkit-fill-available;
+        top: 60px;
+        right: 0;
+        height: calc(100vh - 60px);
+        height: calc(-webkit-fill-available - 60px);
         z-index: 100;
         border-radius: 0;
+        border-left: 1px solid rgba(255,255,255,.1);
         /* Chrome mobile fixes */
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
@@ -887,6 +888,9 @@ html, body {
         /* Ensure proper scrolling */
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        /* Make it look like desktop sidebar */
+        background: rgba(255,255,255,.03);
+        box-shadow: -4px 0 20px rgba(0,0,0,.3);
     }
     
     .room-info {
@@ -905,6 +909,24 @@ html, body {
         height: calc(-webkit-fill-available - 60px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Backdrop overlay for mobile sidebar */
+    .others-threads::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: calc(100vw - 280px);
+        height: 100vh;
+        background: rgba(0,0,0,.3);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .others-threads:not(.hidden)::before {
+        opacity: 1;
     }
 }
 
