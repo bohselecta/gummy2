@@ -874,12 +874,37 @@ html, body {
         top: 0;
         left: 0;
         height: 100vh;
+        height: -webkit-fill-available;
         z-index: 100;
         border-radius: 0;
+        /* Chrome mobile fixes */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        /* Ensure proper scrolling */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .room-info {
         display: none;
+    }
+    
+    /* Additional Chrome mobile fixes */
+    .main-app {
+        height: 100vh;
+        height: -webkit-fill-available;
+        overflow: hidden;
+    }
+    
+    .chat-container {
+        height: calc(100vh - 60px);
+        height: calc(-webkit-fill-available - 60px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
