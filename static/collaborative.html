@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUIDADO Collaborative</title>
+    <link rel="stylesheet" href="/static/collaborative.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Nickname Modal -->
+        <div id="nickname-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Join Room</h2>
+                </div>
+                <div class="modal-body">
+                    <p>What should we call you?</p>
+                    <input type="text" id="nickname-input" placeholder="Enter your nickname (optional)" maxlength="20">
+                    <div class="modal-actions">
+                        <button id="join-btn" class="btn-primary">Join Room</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="main-app" class="main-app hidden">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="/static/cuidado-logo.svg" alt="CUIDADO" class="logo-img" />
+                        <span>CUIDADO</span>
+                    </div>
+                    <div class="header-right">
+                        <div class="room-info">
+                            <div class="room-id">
+                                <span>Room: </span>
+                                <code id="room-display">loading...</code>
+                                <button id="copy-room" class="copy-btn" title="Copy room URL">📋</button>
+                            </div>
+                            <div class="user-count">
+                                <span id="user-count">👥 1 user</span>
+                            </div>
+                        </div>
+                        <div class="connection-badge">
+                            <div class="status-dot"></div>
+                            <span id="connection-status">Connecting...</span>
+                        </div>
+                        <div class="mode-selector">
+                            <button class="mode-btn active" id="conversation-btn">Conversation</button>
+                            <button class="mode-btn" id="coder-btn">Coder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Queue Position Pill -->
+            <div id="queue-pill" class="queue-pill hidden">
+                <span id="queue-text">⏳ 2nd in queue (~18s)</span>
+            </div>
+
+            <!-- Generation Banner -->
+            <div id="generation-banner" class="generation-banner hidden">
+                <span id="generation-text">🤖 Generating for @alice...</span>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Chat Area -->
+                <div class="chat-container">
+                    <div class="thread-tabs">
+                        <button class="thread-tab active" id="my-thread-tab">My Chat</button>
+                        <button class="thread-tab" id="others-thread-tab">View Others</button>
+                    </div>
+                    
+                    <div class="chat-area">
+                        <!-- My Thread -->
+                        <div id="my-thread" class="thread active">
+                            <div class="thread-header">
+                                <span class="thread-title">My Chat</span>
+                                <span class="thread-user" id="my-nickname">@user</span>
+                            </div>
+                            <div class="messages" id="my-messages">
+                                <div class="message assistant">
+                                    <div class="message-content">
+                                        <p>Hello! I'm ready to help. Choose between <strong>Conversation</strong> mode for general chat or <strong>Coder</strong> mode for programming assistance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Others Threads Sidebar -->
+                        <div id="others-threads" class="others-threads hidden">
+                            <div class="others-header">
+                                <h3>Other Conversations</h3>
+                                <button id="close-others" class="close-btn">✕</button>
+                            </div>
+                            <div class="others-list" id="others-list">
+                                <!-- Other threads will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="user-input" 
+                            class="input-field" 
+                            placeholder="Ask anything…" 
+                            rows="1"
+                            disabled
+                        ></textarea>
+                                <button class="send-btn" id="send-btn" disabled>
+                                    <img src="/static/send-arrow.svg" alt="Send" class="send-arrow" />
+                                </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/collaborative.js"></script>
+    <script>
+        // Initialize the app with room ID
+        window.ROOM_ID = 'loading...';
+    </script>
+</body>
+</html>
